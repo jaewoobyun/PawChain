@@ -3,7 +3,9 @@ import { Platform } from 'react-native';
 import {
 	createStackNavigator,
 	createBottomTabNavigator,
-	createAppContainer
+	createAppContainer,
+	createDrawerNavigator,
+	DrawerNavigator
 } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
@@ -13,7 +15,10 @@ import LoginScreen from '../screens/LoginScreen';
 import HomeStack from './HomeStackNavigator';
 import NewPostStack from './NewPostStackNavigator';
 import SettingsStack from './SettingsStackNavigator';
+
 import DonationUsageScreen from '../screens/DonationUsageScreen';
+import SideStack from '../screens/SideMenuScreen';
+import SideMenuScreen from '../screens/SideMenuScreen';
 
 const config = Platform.select({
 	web     : { headerMode: 'screen' },
@@ -73,5 +78,6 @@ const RootStack = createStackNavigator(
 	}
 );
 
-const AppContainer = createAppContainer(RootStack);
-export default AppContainer;
+const TabContainer = createAppContainer(RootStack);
+
+export default TabContainer;

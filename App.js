@@ -8,6 +8,9 @@ import { Ionicons } from '@expo/vector-icons';
 // import AppNavigator from './navigation/AppNavigator';
 import MainTab from './navigation/MainTab';
 
+import SideMenuScreen from './screens/SideMenuScreen';
+import DrawerNav from './navigation/DrawerNav';
+
 export default function App(props) {
 	const [ isLoadingComplete, setLoadingComplete ] = useState(false);
 
@@ -24,7 +27,7 @@ export default function App(props) {
 			<View style={styles.container}>
 				{Platform.OS === 'ios' && <StatusBar barStyle="default" />}
 				{/*<AppNavigator />*/}
-				<MainTab />
+				<DrawerNav />
 			</View>
 		);
 	}

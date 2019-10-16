@@ -79,7 +79,7 @@ class HomeCell extends Component {
 								{' '}
 								{this.props.shelterName}{' '}
 							</Text>
-							<Text> Date goes here </Text>
+							<Text> {Date.now()} </Text>
 						</View>
 					</TouchableOpacity>
 					<TouchableOpacity style={{ padding: 5 }}>

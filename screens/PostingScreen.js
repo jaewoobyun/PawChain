@@ -15,6 +15,7 @@ import { Ionicons } from '@expo/vector-icons';
 import RoundButton from '../components/RoundButton';
 import * as Permissions from 'expo-permissions';
 import * as ImagePicker from 'expo-image-picker';
+import Constants from 'expo-constants';
 import Modal from 'react-native-modal';
 
 export default class PostingScreen extends Component {
@@ -30,8 +31,23 @@ export default class PostingScreen extends Component {
 	}
 
 	async componentDidMount() {
-		let { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+		// let { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
+		this.getPermissionAsync();
 	}
+
+	getPermissionAsync = async () => {
+		if (Constants.platform.ios) {
+			const { status } = await Permissions.askAsync(
+				Permissions.CAMERA_ROLL
+			);
+
+			if (status !== 'granted') {
+				alert(
+					'Sorry, we need camera roll permissions to make this work!'
+				);
+			}
+		}
+	};
 
 	snapPicture = async () => {
 		pic = await ImagePicker.launchCameraAsync();
